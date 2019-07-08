@@ -13,6 +13,9 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore database files
+.postgresql
+
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
