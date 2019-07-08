@@ -9,6 +9,10 @@ Rails.application.routes.draw do
       controller :locale do
         get '/locale/search' => :search
       end
+
+      controller :company do
+        get '/company/search' => :search
+      end
     end
   end
 end
