@@ -5,6 +5,10 @@ Rails.application.routes.draw do
       controller :complain do
         post '/complaint/new' => :new
       end
+
+      controller :locale do
+        get '/locale/search' => :search
+      end
     end
   end
 end
