@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2019_07_08_014342) do
   create_table "complains", force: :cascade do |t|
     t.string "title"
     t.text "description"
+    t.string "lat"
+    t.string "long"
     t.bigint "company_id"
     t.bigint "locale_id"
     t.index ["company_id"], name: "index_complains_on_company_id"
