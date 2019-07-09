@@ -13,6 +13,8 @@ class CreateTables < ActiveRecord::Migration[5.2]
     create_table :complains do |t|
       t.string :title
       t.text :description
+      t.string :lat
+      t.string :long
       t.references :company
       t.references :locale
       t.timestamp

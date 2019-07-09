@@ -11,7 +11,8 @@ RSpec.describe Api::V1::ComplainController, type: :controller do
           title: 'Test',
           description: 'This is a test',
           company_id: company.id + 1,
-          locale_id: locale.id
+          lat: '-364',
+          long: '3685'
         }
       end
 
@@ -24,32 +25,14 @@ RSpec.describe Api::V1::ComplainController, type: :controller do
       end
     end
 
-    context 'try create new company with invalid locale' do
-      let(:complain_params) do
-        {
-          title: 'Test',
-          description: 'This is a test',
-          company_id: company.id,
-          locale_id: locale.id + 1
-        }
-      end
-
-      it 'should return not found' do
-        post :new, params: { data: complain_params }
-
-        expect(response.status).to eq(404)
-        message = JSON.parse(response.body)['error']
-        expect(message).to eq('Locale not found')
-      end
-    end
-
     context 'try create new company with valid params' do
       let(:complain_params) do
         {
           title: 'Test',
           description: 'This is a test',
           company_id: company.id,
-          locale_id: locale.id
+          lat: '-364',
+          long: '3685'
         }
       end
 
