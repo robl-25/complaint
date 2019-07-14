@@ -13,5 +13,13 @@ class Complain
   field :country, type: String
   field :created_at, type: Time
 
-  field :location, type: Point, spatial: true
+  spatial_index :location
+  index({ city: 1 })
+  index({ state: 1 })
+  index({ country: 1 })
+  index({ neighbourhood: 1 })
+  index({ street: 1 })
+  index({ created_at: -1 })
+
+  self.per_page = 20
 end
