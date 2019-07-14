@@ -1,12 +1,14 @@
 version: '3'
 services:
   db:
-    image: postgres
+    image: mongo
     environment:
-      - POSTGRES_USER=complaint
-      - POSTGRES_PASSWORD=complaint
+      - MONGODB_USER=complaint
+      - MONGODB_PASS=complaint
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
     volumes:
-      - .postgresql:/var/lib/postgresql/data
+      - .mongo:/data/db
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"

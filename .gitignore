@@ -15,6 +15,7 @@
 
 # Ignore database files
 .postgresql
+.mongo
 
 # Ignore uploaded files in development
 /storage/*

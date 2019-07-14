@@ -4,22 +4,26 @@ module Api::V1
       complain_params = params['data']
       title = complain_params['title']
       description = complain_params['description']
-      company_id = complain_params['company_id']
+      company = complain_params['company']
       lat = complain_params['lat']
-      long = complain_params['long']
-      company = Company.find_by(id: company_id)
-
-      if company.blank?
-        render json: { error: 'Company not found' }, status: 404
-        return
-      end
+      lng = complain_params['lng']
+      street = complain_params['street']
+      neighbourhood = complain_params['neighbourhood']
+      city = complain_params['city']
+      state = complain_params['state']
+      country = complain_params['country']
 
       Complain.create!(
         title: title,
         description: description,
         company: company,
         lat: lat,
-        long: long
+        lng: lng,
+        street: street,
+        neighbourhood: neighbourhood,
+        city: city,
+        state: state,
+        country: country
       )
 
       render json: {}, status: 200
