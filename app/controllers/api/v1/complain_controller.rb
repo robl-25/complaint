@@ -42,14 +42,19 @@ module Api::V1
           lat: search_params['lat'],
           lng: search_params['lng'],
           radius: search_params['radius']
-        }
+        },
+        company: search_params['company']
       }
       page = search_params['page'].presence || 1
+      per_page = search_params['per_page'].presence || 20
 
       complains =
         filter_complains(filters)
-        .paginate(page: page)
+        .page(page)
+        .per(per_page)
         .order('created_at DESC')
+
+      render json: { data: complains }, status: 200
     end
   end
 end

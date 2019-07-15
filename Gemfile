@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 # pagination library
-gem 'will_paginate'
+gem 'kaminari'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster.
@@ -49,6 +49,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
+
+  # Use binding.pry for development
+  gem 'pry-rails'
 end
 
 group :development do
@@ -60,9 +63,6 @@ group :development do
   # running in the background. Read more: https://github.com/rails/spring
   # gem 'spring'
   # gem 'spring-watcher-listen', '~> 2.0.0'
-
-  # Use binding.pry for development
-  gem 'pry-rails'
 end
 
 group :test do

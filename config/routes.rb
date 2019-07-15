@@ -4,14 +4,7 @@ Rails.application.routes.draw do
     namespace :v1, path: '/v1' do
       controller :complain do
         post '/complaint/new' => :new
-      end
-
-      controller :locale do
-        get '/locale/search' => :search
-      end
-
-      controller :company do
-        get '/company/search' => :search
+        get '/complain/search' => :search
       end
     end
   end
