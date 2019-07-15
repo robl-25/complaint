@@ -56,7 +56,7 @@ RSpec.describe Api::V1::ComplainController, type: :controller do
       )
     end
 
-    context 'search complains without filters' do
+    context 'search complains with state filter' do
       let(:filters) { { state: 'SP' } }
 
       it 'return the first page with matches' do
@@ -65,9 +65,55 @@ RSpec.describe Api::V1::ComplainController, type: :controller do
         expect(response.status).to eq(200)
 
         complains = JSON.parse(response.body)['data']
+        expected = complains_1.map { |complain| complain.id.to_s }
+        result = complains.map { |complain| complain['_id']['$oid'] }
 
         expect(complains.size).to eq(20)
-        expect(complains).to eq(complains_1)
+        expect(result).to eq(expected)
+      end
+    end
+
+    context 'search complains with page filter' do
+      context 'send page number 1' do
+        it 'return the first page with matches' do
+          get :search, params: { data: { page: '1' } }
+
+          expect(response.status).to eq(200)
+
+          complains = JSON.parse(response.body)['data']
+          expected = complains_1.map { |complain| complain.id.to_s }
+          result = complains.map { |complain| complain['_id']['$oid'] }
+
+          expect(complains.size).to eq(20)
+          expect(result).to eq(expected)
+        end
+      end
+
+      context 'send last page' do
+        it 'return the last page with matches' do
+          get :search, params: { data: { page: '3' } }
+
+          expect(response.status).to eq(200)
+
+          complains = JSON.parse(response.body)['data']
+          expected = complains_3.map { |complain| complain.id.to_s }
+          result = complains.map { |complain| complain['_id']['$oid'] }
+
+          expect(complains.size).to eq(20)
+          expect(result).to eq(expected)
+        end
+      end
+
+      context 'send invalid page number' do
+        it 'return zero matches' do
+          get :search, params: { data: { page: '13' } }
+
+          expect(response.status).to eq(200)
+
+          complains = JSON.parse(response.body)['data']
+          expect(complains.size).to eq(0)
+          expect(complains).to eq([])
+        end
       end
     end
   end
