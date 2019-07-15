@@ -53,6 +53,8 @@ group :development, :test do
 
   # Use binding.pry for development
   gem 'pry-rails'
+
+  gem 'simplecov', require: false
 end
 
 group :development do
