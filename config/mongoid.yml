@@ -162,3 +162,13 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
+
+production:
+  clients:
+    default:
+      database: complaint_production
+      uri: <%= ENV['DATABASE_URI'] %>
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
