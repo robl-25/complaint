@@ -166,7 +166,6 @@ test:
 production:
   clients:
     default:
-      database: complaint_production
       uri: <%= ENV['DATABASE_URI'] %>
       options:
         read:

@@ -48,6 +48,6 @@ and [Mongo Atlas](https://cloud.mongodb.com).
   - With `Heroku Cli`, set the stack of the application to `container` with
   `heroku stack:set container`.
   - On the `Settings` tab, set `DATABASE_URI` to the value from Mongo
-  Atlas
+  Atlas and `RAILS_ENV` as `production`.
   - Than use `Deploy Branch` on the `Deploy` tab to deploy any branch or
   enable `Automatic Deploy`.
