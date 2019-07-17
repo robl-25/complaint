@@ -1,4 +1,3 @@
-
 defaults: &defaults
   api_keys:
     front_complaint:
