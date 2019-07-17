@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'home#show'
+
   namespace :api, defaults: { format: :json }, path: '/api' do
     namespace :v1, path: '/v1' do
       controller :complain do
@@ -8,4 +10,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get '*path' => redirect('/')
 end
