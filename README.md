@@ -35,7 +35,7 @@ and [Mongo Atlas](https://cloud.mongodb.com).
 
 - Mongo Atlas
 
-  - Create new project for this project database.
+  1. Create new project for this project database.
   - Build new Cluster (I used AWS as provider, on us-east-1).
   - Create a new database called `complaint_production`.
   - Use the `Connect` tab to find database uri.
@@ -44,7 +44,7 @@ and [Mongo Atlas](https://cloud.mongodb.com).
 
 - Heroku
 
-  - Create a new app for this project.
+  1. Create a new app for this project.
   - On the `Deploy` tab, add github integration with this repository.
   - With `Heroku Cli`, set the stack of the application to `container` with
   `heroku stack:set container`.
