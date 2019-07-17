@@ -1,0 +1,6 @@
+
+defaults: &defaults
+  api_keys:
+    front_complaint:
+      username: <%= ENV['FRONT_API_USERNAME'].presence || 'test' %>
+      password: <%= ENV['FRONT_API_PASSWORD'].presence || 'test' %>

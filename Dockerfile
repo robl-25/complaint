@@ -1,5 +1,5 @@
 FROM ruby:2.5
-ARG RAILS_ENV=development
+ARG RAILS_ENV
 RUN apt-get update -qq && apt-get install -y nodejs
 RUN mkdir /myapp
 WORKDIR /myapp
