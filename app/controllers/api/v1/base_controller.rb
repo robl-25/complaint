@@ -5,7 +5,9 @@ module Api
       skip_before_action :verify_authenticity_token
 
       def initialize
-        @credentials = Settings.api_keys.map{ |k, v| [v["username"], v["password"]] }.to_h
+        @credentials = Settings.api_keys.map do |k, v|
+          [v["username"], v["password"]]
+        end.to_h
       end
 
       def authenticate

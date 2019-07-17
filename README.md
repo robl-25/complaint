@@ -39,6 +39,7 @@ and [Mongo Atlas](https://cloud.mongodb.com).
   - Build new Cluster (I used AWS as provider, on us-east-1).
   - Create a new database called `complaint_production`.
   - Use the `Connect` tab to find database uri.
+  - Allow access to your production application.
 
 
 - Heroku
@@ -48,6 +49,6 @@ and [Mongo Atlas](https://cloud.mongodb.com).
   - With `Heroku Cli`, set the stack of the application to `container` with
   `heroku stack:set container`.
   - On the `Settings` tab, set `DATABASE_URI` to the value from Mongo
-  Atlas and `RAILS_ENV` as `production`.
+  Atlas and `RAILS_ENV` as `production` and set a `SECRET_KEY_BASE`.
   - Than use `Deploy Branch` on the `Deploy` tab to deploy any branch or
   enable `Automatic Deploy`.
