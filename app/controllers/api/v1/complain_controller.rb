@@ -1,5 +1,5 @@
 module Api::V1
-  class ComplainController < ApplicationController
+  class ComplainController < BaseController
     include ComplainsHelper
 
     def new
